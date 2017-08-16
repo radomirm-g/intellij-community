@@ -35,6 +35,7 @@ public class PatchSpec {
   private Map<String, String> myWarnings = Collections.emptyMap();
   private List<String> myDeleteFiles = Collections.emptyList();
   private String myRoot = "";
+  private boolean myRenameRootDirectory;
 
   public String getOldVersionDescription() {
     return myOldVersionDescription;
@@ -169,5 +170,14 @@ public class PatchSpec {
 
   public String getRoot() {
     return myRoot;
+  }
+
+  public boolean isRenameRootDirectory() {
+    return myRenameRootDirectory;
+  }
+
+  public PatchSpec setRenameRootDirectory(boolean renameRootDirectory) {
+    myRenameRootDirectory = renameRootDirectory;
+    return this;
   }
 }

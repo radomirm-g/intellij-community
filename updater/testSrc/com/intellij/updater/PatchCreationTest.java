@@ -277,6 +277,14 @@ public class PatchCreationTest extends PatchTestCase {
   }
 
   @Test
+  public void testRenameRootDirectory() throws Exception {
+    Patch patch = createPatch(spec -> spec.setRenameRootDirectory(true));
+    assertThat(sortActions(patch.getActions())).last().isEqualTo(
+      new RenameRootDirectoryAction(patch, "oldDir", "newDir")
+    );
+  }
+
+  @Test
   public void testSaveLoad() throws Exception {
     Patch original = createPatch();
     File f = getTempFile("file");
